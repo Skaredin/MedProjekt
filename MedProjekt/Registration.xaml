@@ -4,9 +4,35 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MedProjekt"
-        mc:Ignorable="d"
-        Title="Registration" Height="450" Width="800">
+      
+         mc:Ignorable="d"
+        Title="Registration" Height="475" Width="406.4">
     <Grid>
-        
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#A8FFFFFF" Offset="1"/>
+                <GradientStop Color="#963E397E"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Label Content="Регистрация" Margin="159,10,159,0" VerticalAlignment="Top" Height="26"/>
+
+        <Label Content="Логин" HorizontalAlignment="Left" Margin="25,57,0,0" VerticalAlignment="Top" Height="33" Width="43"/>
+        <Label Content="Пароль" HorizontalAlignment="Left" Margin="25,106,0,0" VerticalAlignment="Top" Height="33" Width="51"/>
+        <Label Content="Повторите пароль" HorizontalAlignment="Left" Margin="25,157,0,0" VerticalAlignment="Top" Height="33" Width="113"/>
+        <Label Content="Фамилия" HorizontalAlignment="Left" Margin="25,206,0,0" VerticalAlignment="Top" Height="33" Width="66"/>
+        <Label Content="Имя" HorizontalAlignment="Left" Margin="25,255,0,0" VerticalAlignment="Top" Height="33" Width="51"/>
+        <Label Content="Отчество" HorizontalAlignment="Left" Margin="25,308,0,0" VerticalAlignment="Top" Height="33" Width="66"/>
+
+        <TextBox HorizontalAlignment="Left" Height="33" Margin="202,58,0,0" TextWrapping="Wrap" x:Name="Login" VerticalAlignment="Top" Width="180" BorderBrush="White"/>
+        <TextBox HorizontalAlignment="Left" Height="33" Margin="202,107,0,0" TextWrapping="Wrap" x:Name="Passvord"  VerticalAlignment="Top" Width="180" BorderBrush="White"/>
+        <TextBox HorizontalAlignment="Left" Height="33" Margin="202,158,0,0" TextWrapping="Wrap" x:Name="Dooble_passvord" VerticalAlignment="Top" Width="180" BorderBrush="White"/>
+        <TextBox HorizontalAlignment="Left" Height="33" Margin="202,206,0,0" TextWrapping="Wrap" x:Name="Familia"  VerticalAlignment="Top" Width="180" BorderBrush="White"/>
+        <TextBox HorizontalAlignment="Left" Height="33" Margin="202,255,0,0" TextWrapping="Wrap" x:Name="Name"  VerticalAlignment="Top" Width="180" BorderBrush="White"/>
+        <TextBox HorizontalAlignment="Left" Height="33" Margin="202,308,0,0" TextWrapping="Wrap" x:Name="Otcestvo"  VerticalAlignment="Top" Width="180" BorderBrush="White"/>
+
+        <ToggleButton  Style="{StaticResource GreenToggleButtonStyle}" Content="Зарегистрироваться" Margin="67,393,68.2,0" VerticalAlignment="Top" Background="White" Checked="Regist"/>
+        <ToggleButton Style="{StaticResource GreenToggleButtonStyle}" Content="Назад" Margin="0,0,332,0" VerticalAlignment="Top" Background="White" Checked="Nazad"/>
+
     </Grid>
 </Window>

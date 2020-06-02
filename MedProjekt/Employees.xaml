@@ -7,6 +7,19 @@
         mc:Ignorable="d"
         Title="Employees" Height="450" Width="800">
     <Grid>
-        
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#A8FFFFFF" Offset="1"/>
+                <GradientStop Color="#963E397E"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Image HorizontalAlignment="Left"  Height="116" VerticalAlignment="Top" Width="90" Source="Image/Iconka.jpg"/>
+        <Label Content="Медицинские &#xD;&#xA;организации &#xD;&#xA;города" HorizontalAlignment="Left" Margin="90,0,0,0" VerticalAlignment="Top" Height="116" Width="157" Cursor="None" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="247,0,0,0" VerticalAlignment="Top" Width="189" Height="36"/>
+        <Button Content="Всё о пациенте" HorizontalAlignment="Left" Margin="605,0,-0.4,0" VerticalAlignment="Top" Width="189" Height="36"/>
+
+
+
     </Grid>
 </Window>
+    
