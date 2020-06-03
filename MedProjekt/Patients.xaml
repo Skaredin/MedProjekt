@@ -7,6 +7,7 @@
         xmlns:local="clr-namespace:MedProjekt"       
        mc:Ignorable="d" Height="600" Width="1080" Foreground="White" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Window.Resources>
+
         <Storyboard x:Key="OpenMenu">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
                 <EasingDoubleKeyFrame KeyTime="0" Value="70"/>
@@ -28,14 +29,21 @@
             <BeginStoryboard Storyboard="{StaticResource CloseMenu}"/>
         </EventTrigger>
     </Window.Triggers>
-    <Grid Background="#FFDEDEDE">
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#A8FFFFFF" Offset="1"/>
+                <GradientStop Color="#963E397E"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Grid x:Name="GridMain" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="540" Width="1010"/>
-        <Grid Height="60" VerticalAlignment="Top" Background="#FF5C99D6">
+        <Grid Height="60" VerticalAlignment="Top" Background="#755D9A">
             <Grid.Effect>
                 <DropShadowEffect BlurRadius="1" ShadowDepth="1" Color="#FFACACAC"/>
             </Grid.Effect>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <TextBlock Text="Abel Dutra" VerticalAlignment="Center" FontSize="16"/>
+                
                 <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Margin="10">
                     <StackPanel Width="150">
                         <Button Content="Settings"/>
@@ -45,54 +53,70 @@
                         <Button Content="Logout"/>
                     </StackPanel>
                 </materialDesign:PopupBox>
+                <Button Background="Transparent" Width="45" Height="45" Click="Close" Margin="10">
+                    <Path Data="M7.1999998,0L16,8.7999997 24.799999,0 32,7.1999998 23.2,16 32,24.799999 24.799999,32 16,23.2 7.1999998,32 0,24.799999 8.7999997,16 0,7.1999998z" 
+                                     Stretch="Uniform" 
+                                     Fill="#fff" 
+                                     Width="22" Height="34.9" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5"/>
+                </Button>
+
             </StackPanel>
-            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22">Design com WPF</TextBlock>
+
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22">Па</TextBlock>
         </Grid>
-        <Grid x:Name="GridMenu" Width="70" HorizontalAlignment="Left" Background="#FF31577E">
+        <Grid x:Name="GridMenu" Width="70" HorizontalAlignment="Left" Background="#755D9A">
+
+
+
             <Grid.Effect>
-                <DropShadowEffect BlurRadius="2" ShadowDepth="1" Color="#FFAEAEAE"/>
+                <DropShadowEffect BlurRadius="2" ShadowDepth="1" Color="#FFAEAEAE" />
+
             </Grid.Effect>
-            <StackPanel>
-                <Grid Height="150" Background="White" RenderTransformOrigin="0.5,0.5">
-                    <Grid.RenderTransform>
-                        <TransformGroup>
+            <StackPanel >
+                <Grid Height="60"  Background="#755D9A"   >
+                    <Grid.RenderTransform >
+                        <TransformGroup >
                             <ScaleTransform/>
                             <SkewTransform/>
                             <RotateTransform/>
                             <TranslateTransform/>
                         </TransformGroup>
                     </Grid.RenderTransform>
-                    <Button x:Name="ButtonOpenMenu" Height="60" Width="60" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF31577E" Click="ButtonOpenMenu_Click">
+
+
+                    <Button x:Name="ButtonOpenMenu"  Height="60" Width="60" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#ffff" Click="ButtonOpenMenu_Click">
                         <materialDesign:PackIcon Kind="Menu" Width="25" Height="25"/>
                     </Button>
-                    <Button x:Name="ButtonCloseMenu" Visibility="Collapsed" Height="60" Width="60" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Top"  Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF31577E" Click="ButtonCloseMenu_Click">
+
+                    <Button x:Name="ButtonCloseMenu" Visibility="Collapsed" Height="60" Width="60" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Top"  Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#ffff" Click="ButtonCloseMenu_Click">
                         <materialDesign:PackIcon Kind="ArrowLeft" Width="25" Height="25"/>
                     </Button>
-
-                    <Image Height="80" VerticalAlignment="Bottom"/>
                 </Grid>
-                <ListView x:Name="ListViewMenu" Foreground="#FF5C99D6" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListViewMenu_SelectionChanged">
-                    <ListViewItem x:Name="ItemHome" Height="60">
+                <Grid Height="80"  Background="#ffff">
+                    <Image Height="80" Source="Image/Iconka.jpg" VerticalAlignment="Bottom"/>
+                </Grid>
+                <ListView x:Name="ListViewMenu" Foreground="#FF5C99D6" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListViewMenu_SelectionChanged" Background="#755D9A">
+                    <ListViewItem x:Name="ItemHome" Height="60" Background="#755D9A">
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="ViewDashboard" Height="25" Width="25" Margin="10"/>
-                            <TextBlock Text="Home" VerticalAlignment="Center" Margin="20 10"/>
+                            <materialDesign:PackIcon Kind="ViewDashboard" Foreground="#ffff"  Height="25" Width="25" Margin="10"/>
+                            <TextBlock Text="Главная" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem x:Name="ItemCreate" Height="60">
+                    <ListViewItem x:Name="ItemCreate" Height="60" Background="#755D9A">
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Pencil" Height="25" Width="25" Margin="10"/>
-                            <TextBlock Text="Create" VerticalAlignment="Center" Margin="20 10"/>
+                            <materialDesign:PackIcon Kind="Pencil"  Foreground="#ffff" Height="25" Width="25" Margin="10"/>
+                            <TextBlock Text="Получить талон" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="60">
+                    <ListViewItem Height="60" Background="#755D9A">
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Ticket" Height="25" Width="25" Margin="10"/>
-                            <TextBlock Text="Tickets" VerticalAlignment="Center"  Margin="20 10"/>
+                            <materialDesign:PackIcon Kind="Ticket"  Foreground="#ffff" Height="25" Width="25" Margin="10"/>
+                            <TextBlock Text="Расписание" VerticalAlignment="Center"  Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="60">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Message" Height="25" Width="25" Margin="10"/>
+                    <ListViewItem Height="60" Background="#755D9A">
+                        <StackPanel Orientation="Horizontal" >
+                            <materialDesign:PackIcon Kind="Message"  Foreground="#ffff" Height="25" Width="25" Margin="10"/>
                             <TextBlock Text="Messages" VerticalAlignment="Center"  Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>

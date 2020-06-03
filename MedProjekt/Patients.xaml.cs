@@ -39,22 +39,29 @@ namespace MedProjekt
 
         private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Employees usc = null;
+            UserControl usc = null;
             GridMain.Children.Clear();
 
             switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
             {
-                case "ItemHome":
-                    usc = new Employees();
-                    GridMain.Children.Add(usc);
-                    break;
                 case "ItemCreate":
-                    usc = new Employees();
+                    usc = new UserControlHome();
                     GridMain.Children.Add(usc);
                     break;
+                
                 default:
                     break;
             }
+        }
+
+        private void CloseBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Close(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

@@ -30,9 +30,14 @@ namespace MedProjekt
 
         private void ToggleButton_Checked(object sender, RoutedEventArgs e)
         {
+            
             // Метод если будут не предвиденные ошибки при выполнение
             try
             {
+
+
+
+
                 // Подключение к базе
                 string con = @"Data Source=SBD\MSSQL;Initial Catalog=AProektSK;Integrated Security=True";
 
@@ -40,38 +45,48 @@ namespace MedProjekt
 
                 string com1 = " Select * From Patients Where login='" + Login.Text.Trim() + "' and passvord = '" + Passvord.Text.Trim() + "'";
 
-
-                using (SqlConnection connection = new SqlConnection(con))
+                if (Login.Text == "" || Passvord.Text == "")
                 {
-                    // Открываем соединение
-                    connection.Open();
-                    //Задаем переменные
-                    SqlDataAdapter adapter = new SqlDataAdapter(com, connection);
-                    SqlDataAdapter adapter1 = new SqlDataAdapter(com1, connection);
-                    DataTable table = new DataTable();
-                    DataTable table1 = new DataTable();
-                    adapter.Fill(table);
-                    adapter1.Fill(table1);
-                    // Проверка на Executor
-
-
-                    if (table.Rows.Count == 1)
+                    MessageBox.Show("Незаполнены поля проверти и повторите попытку");
+                }
+                else
+                {
+                    using (SqlConnection connection = new SqlConnection(con))
                     {
-                        Patients patients = new Patients();
-                        patients.Show();
-                        Hide();
+                        // Открываем соединение
+                        connection.Open();
+                        //Задаем переменные
+                        SqlDataAdapter adapter = new SqlDataAdapter(com, connection);
+                        SqlDataAdapter adapter1 = new SqlDataAdapter(com1, connection);
+                        DataTable table = new DataTable();
+                        DataTable table1 = new DataTable();
+                        adapter.Fill(table);
+                        adapter1.Fill(table1);
+                        
+
+                        // Проверка на Executor
+                        if (table.Rows.Count == 1)
+                        {
+                            
+                            Employees employees = new Employees();
+                            employees.Show();
+                            Hide();
+                            MessageBox.Show("Хорошей работы" );
+                        }
+                        // Проверка на Patients
+                        else if (table1.Rows.Count == 1)
+                        {
+                            Patients patients = new Patients();
+                            patients.Show();
+
+                            Hide();
+                            MessageBox.Show("Esввв");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Esццц");
+                        }
                     }
-
-
-
-                    // Проверка на Mesager
-                    if (table1.Rows.Count == 1)
-                    {
-                        Employees employees = new Employees();
-                        employees.Show();
-                        Hide();
-                    }
-
                 }
 
             }
