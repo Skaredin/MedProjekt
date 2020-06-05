@@ -15,7 +15,6 @@ using System.Windows.Shapes;
 using System.Data.SqlClient;
 using System.Data;
 
-
 namespace MedProjekt
 {
     /// <summary>
@@ -31,6 +30,7 @@ namespace MedProjekt
         private void ToggleButton_Checked(object sender, RoutedEventArgs e)
         {
             
+            
             // Метод если будут не предвиденные ошибки при выполнение
             try
             {
@@ -39,11 +39,14 @@ namespace MedProjekt
 
 
                 // Подключение к базе
-                string con = @"Data Source=SBD\MSSQL;Initial Catalog=AProektSK;Integrated Security=True";
+                string con = @"Data Source=SBD\MSSQL;Initial Catalog=AProektSK1;Integrated Security=True";
 
                 string com = " Select * From Employees Where login='" + Login.Text.Trim() + "' and passvord = '" + Passvord.Text.Trim() + "'";
 
                 string com1 = " Select * From Patients Where login='" + Login.Text.Trim() + "' and passvord = '" + Passvord.Text.Trim() + "'";
+
+                
+
 
                 if (Login.Text == "" || Passvord.Text == "")
                 {
@@ -72,6 +75,7 @@ namespace MedProjekt
                             employees.Show();
                             Hide();
                             MessageBox.Show("Хорошей работы" );
+
                         }
                         // Проверка на Patients
                         else if (table1.Rows.Count == 1)
@@ -80,11 +84,11 @@ namespace MedProjekt
                             patients.Show();
 
                             Hide();
-                            MessageBox.Show("Esввв");
+                            MessageBox.Show("Вход прошол успешно");
                         }
                         else
                         {
-                            MessageBox.Show("Esццц");
+                            MessageBox.Show("Неправельный логин или пароль");
                         }
                     }
                 }

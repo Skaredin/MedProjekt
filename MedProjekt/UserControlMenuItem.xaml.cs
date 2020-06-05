@@ -12,34 +12,22 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Data.SqlClient;
-using System.Data;
+using BeautySolutions.View.ViewModel;
 
 namespace MedProjekt
 {
     /// <summary>
-    /// Логика взаимодействия для UserControlHome.xaml
+    /// Логика взаимодействия для UserControlMenuItem.xaml
     /// </summary>
-    public partial class UserControlHome : UserControl
+    public partial class UserControlMenuItem : UserControl
     {
-        public UserControlHome()
+        public UserControlMenuItem(ItemMenu itemMenu)
         {
             InitializeComponent();
+            ExpanderMenu.Visibility = itemMenu.SubItems == null ? Visibility.Collapsed : Visibility.Visible;
+            ListViewItemMenu.Visibility = itemMenu.SubItems == null ? Visibility.Visible : Visibility.Collapsed;
 
-        }
-
-       
-
-        private void Bolnica(object sender, RoutedEventArgs e)
-        {
-            Bolnica bolnica = new Bolnica();
-            bolnica.Show();
-           
-        }
-
-        private void Poliklinika(object sender, RoutedEventArgs e)
-        {
-
+            this.DataContext = itemMenu;
         }
     }
 }

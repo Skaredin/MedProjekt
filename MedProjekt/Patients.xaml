@@ -62,7 +62,8 @@
 
             </StackPanel>
 
-            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22">Па</TextBlock>
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22">Медицинских организаций города
+            </TextBlock>
         </Grid>
         <Grid x:Name="GridMenu" Width="70" HorizontalAlignment="Left" Background="#755D9A">
 
@@ -113,14 +114,16 @@
                             <materialDesign:PackIcon Kind="Ticket"  Foreground="#ffff" Height="25" Width="25" Margin="10"/>
                             <TextBlock Text="Расписание" VerticalAlignment="Center"  Margin="20 10"/>
                         </StackPanel>
-                    </ListViewItem>
+                    </ListViewItem> 
                     <ListViewItem Height="60" Background="#755D9A">
                         <StackPanel Orientation="Horizontal" >
                             <materialDesign:PackIcon Kind="Message"  Foreground="#ffff" Height="25" Width="25" Margin="10"/>
                             <TextBlock Text="Messages" VerticalAlignment="Center"  Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
+                    
                 </ListView>
+                
             </StackPanel>
         </Grid>
     </Grid>

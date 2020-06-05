@@ -21,7 +21,7 @@ namespace MedProjekt
     /// </summary>
     public partial class Registration : Window
     {
-        string con = @"Data Source=SBD\MSSQL;Initial Catalog=AProektSK;Integrated Security=True";
+        string con = @"Data Source=SBD\MSSQL;Initial Catalog=AProektSK1;Integrated Security=True";
 
         public Registration()
         {
@@ -41,7 +41,8 @@ namespace MedProjekt
 
                 // Проверка на заполнение полей
 
-                if (Login.Text == "" || Passvord.Text == "")
+
+                if (Login.Text == "" || Passvord.Text == "" || Dooble_passvord.Text == "" || Familia.Text == "" || Name.Text == "" || Otcestvo.Text == "")
                 {
                     MessageBox.Show("Незаполнены поля проверти и повторите попытку");
                 }
@@ -58,7 +59,7 @@ namespace MedProjekt
                         // Открываем соединение
                         sqlCon.Open();
                         //Соотношение полей в базе
-                        SqlCommand sqlCmd = new SqlCommand("PatientsAdd", sqlCon);
+                        SqlCommand sqlCmd = new SqlCommand("UserAdd", sqlCon);
                         sqlCmd.CommandType = CommandType.StoredProcedure;
                         sqlCmd.Parameters.AddWithValue("@id_Patients", " ");                      
                         sqlCmd.Parameters.AddWithValue("@Login", Login.Text.Trim());

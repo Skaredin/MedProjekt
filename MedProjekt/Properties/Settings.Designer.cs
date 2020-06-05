@@ -32,5 +32,15 @@ namespace MedProjekt.Properties {
                 return ((string)(this["AProektSKConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=SBD\\MSSQL;Initial Catalog=AProektSK1;Integrated Security=True")]
+        public string AProektSK1ConnectionString {
+            get {
+                return ((string)(this["AProektSK1ConnectionString"]));
+            }
+        }
     }
 }

@@ -45,6 +45,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -54,15 +56,25 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="UIAutomationProvider" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AProektSK1DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AProektSK1DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Bolnica.xaml.cs">
+      <DependentUpon>Bolnica.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Glavnaa.xaml.cs">
       <DependentUpon>Glavnaa.xaml</DependentUpon>
     </Compile>
@@ -75,6 +87,18 @@
     <Compile Include="UserControlHome.xaml.cs">
       <DependentUpon>UserControlHome.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControlMenuItem.xaml.cs">
+      <DependentUpon>UserControlMenuItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\ItemMenu.cs" />
+    <Compile Include="ViewModel\SubItem.cs" />
+    <Compile Include="ZapisatsaVi.xaml.cs">
+      <DependentUpon>ZapisatsaVi.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Bolnica.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Employees.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -90,11 +114,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="AProektSKDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AProektSKDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Employees.xaml.cs">
       <DependentUpon>Employees.xaml</DependentUpon>
@@ -112,6 +131,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControlHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlMenuItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ZapisatsaVi.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -134,16 +161,16 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="AProektSKDataSet.xsc">
-      <DependentUpon>AProektSKDataSet.xsd</DependentUpon>
+    <None Include="AProektSK1DataSet.xsc">
+      <DependentUpon>AProektSK1DataSet.xsd</DependentUpon>
     </None>
-    <None Include="AProektSKDataSet.xsd">
+    <None Include="AProektSK1DataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>AProektSKDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>AProektSK1DataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="AProektSKDataSet.xss">
-      <DependentUpon>AProektSKDataSet.xsd</DependentUpon>
+    <None Include="AProektSK1DataSet.xss">
+      <DependentUpon>AProektSK1DataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

@@ -1,0 +1,59 @@
+﻿<Window x:Class="MedProjekt.Bolnica"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MedProjekt"
+        mc:Ignorable="d"  Height="540" Width="1010" Loaded="Window_Loaded_1"                
+        >
+    <Window.Resources>
+        <local:AProektSK1DataSet x:Key="aProektSK1DataSet"/>
+        <CollectionViewSource x:Key="priom_HospitalViewSource" Source="{Binding Priom_Hospital, Source={StaticResource aProektSK1DataSet}}"/>
+    </Window.Resources>
+    
+    <Grid DataContext="{StaticResource priom_HospitalViewSource}">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#A8FFFFFF" Offset="1"/>
+                <GradientStop Color="#963E397E"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <DataGrid x:Name="priom_HospitalDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="10,104,10.2,10.4" RowDetailsVisibilityMode="VisibleWhenSelected">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="номер_больницыColumn" Binding="{Binding Номер больницы}" Header="Номер больницы" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="странаColumn" Binding="{Binding Страна}" Header="Страна" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="городColumn" Binding="{Binding Город}" Header="Город" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="обласьColumn" Binding="{Binding Облась}" Header="Облась" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="улицаColumn" Binding="{Binding Улица}" Header="Улица" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="домColumn" Binding="{Binding Дом}" Header="Дом" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="наименование_больницыColumn" Binding="{Binding Наименование больницы}" Header="Наименование больницы" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="количество_палатColumn" Binding="{Binding Количество палат}" Header="Количество палат" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="количество_занятых_палатColumn" Binding="{Binding Количество занятых палат}" Header="Количество занятых палат" Width="SizeToHeader"/>
+                <DataGridTemplateColumn x:Name="дата_приёмаColumn" Header="Дата приёма" Width="SizeToHeader">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <DatePicker SelectedDate="{Binding Дата приёма, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn x:Name="время_приёмаColumn" Binding="{Binding Время приёма}" Header="Время приёма" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="кабинет_приёмаColumn" Binding="{Binding Кабинет приёма}" Header="Кабинет приёма" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="фамилия_пациентаColumn" Binding="{Binding Фамилия пациента}" Header="Фамилия пациента" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="имя_пациентаColumn" Binding="{Binding Имя пациента}" Header="Имя пациента" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="отчество_пациентаColumn" Binding="{Binding Отчество пациента}" Header="Отчество пациента" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="фамилия_врачаColumn" Binding="{Binding Фамилия врача}" Header="Фамилия врача" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="имя_врачаColumn" Binding="{Binding Имя врача}" Header="Имя врача" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="отчество_врачаColumn" Binding="{Binding Отчество врача}" Header="Отчество врача" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="степеньColumn" Binding="{Binding Степень}" Header="Степень" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="вспомогательный_персоналColumn" Binding="{Binding Вспомогательный персонал}" Header="Вспомогательный персонал" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="вид_врачебной_деятельностиColumn" Binding="{Binding Вид врачебной деятельности}" Header="Вид врачебной деятельности" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="званиеColumn" Binding="{Binding Звание}" Header="Звание" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="категорияColumn" Binding="{Binding Категория}" Header="Категория" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="вид_графикаColumn" Binding="{Binding Вид графика}" Header="Вид графика" Width="SizeToHeader"/>
+                
+            </DataGrid.Columns>
+        </DataGrid>
+        <ToggleButton  Content="Записаться на приём"  Margin="696,10,10.2,0" Style="{StaticResource GreenToggleButtonStyle}" VerticalAlignment="Top" RenderTransformOrigin="0.695,0.625" Height="24"  Background="White" Panel.ZIndex="73" Checked="Zapisatsa"/>
+
+    </Grid>
+</Window>
